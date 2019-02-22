@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^5.8.3",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
   },
   "devDependencies": {
     "@babel/core": "7.2.2",
+    "@firebase/util": "^0.2.7",
     "@svgr/webpack": "4.1.0",
     "@types/jest": "24.0.6",
     "@types/node": "11.9.4",
@@ -32,6 +34,7 @@
     "eslint-plugin-jsx-a11y": "6.1.2",
     "eslint-plugin-react": "7.12.4",
     "file-loader": "2.0.0",
+    "firebase-tools": "^6.3.1",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.1",
     "html-webpack-plugin": "4.0.0-alpha.2",
@@ -63,8 +66,14 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "firebase": "firebase",
+    "predeploy": "npm run build",
+    "deploy": "firebase deploy"
   },
+  "sideEffects": [
+    "./src/setup-firebase.ts"
+  ],
   "eslintConfig": {
     "extends": "react-app"
   },
