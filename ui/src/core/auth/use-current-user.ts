@@ -10,8 +10,8 @@ export function useCurrentUser() {
 
   React.useEffect(() => {
     firebase.auth().onAuthStateChanged((fUser) => {
-      const user = createReadyUser(fUser);
-      setUser(user);
+      const readyUser = createReadyUser(fUser);
+      setUser(readyUser);
     });
   }, []);
 

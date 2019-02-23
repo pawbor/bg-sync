@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
     "firebase": "^5.8.3",
     "react": "^16.8.2",
-    "react-dom": "^16.8.2"
+    "react-dom": "^16.8.2",
+    "typeface-roboto": "^0.0.54"
   },
   "devDependencies": {
     "@babel/core": "7.2.2",
@@ -15,6 +17,8 @@
     "@types/node": "11.9.4",
     "@types/react": "16.8.4",
     "@types/react-dom": "16.8.2",
+    "@typescript-eslint/eslint-plugin": "^1.4.0",
+    "@typescript-eslint/parser": "^1.4.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
@@ -75,7 +79,25 @@
     "./src/setup-firebase.ts"
   ],
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "no-shadow": "warn"
+    },
+    "overrides": {
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "rules": {
+        "no-unused-vars": "off",
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": "warn"
+      }
+    }
   },
   "browserslist": [
     ">0.2%",
